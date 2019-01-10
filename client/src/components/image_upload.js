@@ -71,15 +71,15 @@ class ImageUpload extends Component {
                 <div className="center">
                     <h4 className="green-text darken-2">Image Upload Successful</h4>
                     <div className="row">
+                        {this.renderImage(src)}
+                    </div>
+                    <div className="row">
                         <div className="col s6">
                             <button className="btn blue lighten-1" onClick={this.resetUpload}>Upload New Image</button>
                         </div>
                         <div className="col s6">
                             <button className="btn blue darken-1" onClick={this.backToImages}>Back to Images</button>
                         </div>
-                    </div>
-                    <div className="row">
-                        {this.renderImage(src)}
                     </div>
                 </div>
             );
