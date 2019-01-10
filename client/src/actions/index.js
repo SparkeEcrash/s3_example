@@ -10,8 +10,12 @@ export const getImages = () => async dispatch => {
     });
 }
 
+export const resetImageUpload = () => ({ type: types.IMAGE_UPLOAD_RESET });
+
 export const uploadImage = (details, image) => async dispatch => {
     try {
+        dispatch({ type: types.IMAGE_UPLOAD_START });
+
         const s3UploadConfig = await axios.get(`/api/prep-upload?fileType=${image.type}&name=${image.name}`);
 
         const { url, key } = s3UploadConfig.data;
@@ -22,13 +26,12 @@ export const uploadImage = (details, image) => async dispatch => {
             }
         });
 
-        const resp = await axios.post('/api/save-image', {
+        await axios.post('/api/save-image', {
             ...details,
             path: key
         });
 
-        console.log('Save Resp:', resp);
-
+        dispatch({ type: types.IMAGE_UPLOAD_COMPLETE });
     } catch(err){
         console.log('Error Uploading Image to S3', err);
     }
