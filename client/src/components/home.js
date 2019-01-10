@@ -14,7 +14,7 @@ class Home extends Component {
             return (
                 <div key={img.id} className="col s3 center">
                     <p>{img.name}</p>
-                    <img src={`https://s3-us-west-2.amazonaws.com/lfz-example-images/${img.path}`} alt={img.caption}/>
+                    <img style={{width: '40%'}} src={`https://s3-us-west-2.amazonaws.com/lfz-example-images/${img.path}`} alt={img.caption}/>
                 </div>
             )
         });
