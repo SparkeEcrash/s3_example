@@ -1,10 +1,6 @@
 const router = require('express').Router();
+const { test } = require('../../controllers/api');
 
-router.get('/test', (req, res) => {
-    res.send({
-        success: true,
-        message: 'API test endpoint'
-    });
-});
+router.get('/test', test);
 
 module.exports = router;
