@@ -4,6 +4,11 @@
   "description": "Example of image upload to an Amazon s3 server using ReactJS and NodeJS",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:client": "npm start --prefix client",
+    "dev:server": "nodemon index.js",
+    "bundle": "npm run bundle --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
