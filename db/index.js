@@ -14,3 +14,5 @@ db.connect((err) => {
     }
     console.log('Connected to MySQL DB');
 });
+
+module.exports = db;
